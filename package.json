@@ -4,6 +4,7 @@
   "description": "For Code Flutter More Fast",
   "version": "0.0.1",
   "icon": "icon.png",
+  "publisher": "pitikdigitalindonesia",
   "repository": {
     "type": "git",
     "url": "https://github.com/anggasetiawanw/pitik-flutter-snippets"
