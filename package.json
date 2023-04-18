@@ -1,0 +1,25 @@
+{
+  "name": "pitik-flutter-snippets",
+  "displayName": "Pitik Flutter Snippets",
+  "description": "For Code Flutter More Fast",
+  "version": "0.0.1",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anggasetiawanw/pitik-flutter-snippets"
+  },
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "dart",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}

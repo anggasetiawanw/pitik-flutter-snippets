@@ -1,0 +1,89 @@
+{
+  "Generate Response Listener": {
+    "prefix": "reslisten",
+    "body": [
+      "ResponseListener ${0:nameVariable} = ResponseListener(",
+      "\t\tonResponseDone: (code, message, body, id, packet) {},",
+      "\t\tonResponseFail: (code, message, body, id, packet) {},",
+      "\t\tonResponseError: (exception, stacktrace, id, packet) {},",
+      "\t\tonTokenInvalid: () {});"
+    ]
+  },
+  "Service Just Push": {
+    "prefix": "serpush",
+    "body": [
+      "Service.push(",
+      "\t${1:functionApi},",
+      "\tcontext,",
+      "\t[${2:params}],",
+      "\tResponseListener(",
+      "\t\tonResponseDone: (code, message, body, id, packet) {},",
+      "\t\tonResponseFail: (code, message, body, id, packet) {},",
+      "\t\tonResponseError: (exception, stacktrace, id, packet) {},",
+      "\t\tonTokenInvalid: () {}));"
+    ]
+  },
+  "Service Just Push with id dan packet": {
+    "prefix": "serpushidandpacket",
+    "body": [
+      "Service.pushWithIdAndPacket(",
+      "\t${1:functionApi},",
+      "\tcontext,",
+      "\t${2:id},",
+      "\t[${3:params}],",
+      "\t${4:responseListener});"
+    ]
+  },
+  "Base Model": {
+    "prefix": "basemodel",
+    "body": [
+      "class $1 {",
+      "\t${2:typeData} ${3:nameData};",
+      "",
+      "\t$1({this.${3:nameData}});",
+      "",
+      "\tstatic $1 toResponseModel(Map<String, dynamic> map) {",
+      "\t\treturn $1(",
+      "\t\t\t${3:nameData}: map['${3:nameData}']",
+      "\t\t);",
+      "\t}",
+      "}"
+    ]
+  },
+  "to Response Model": {
+    "prefix": "resmodel",
+    "body": [
+      "class $1 {",
+      "\tint code;",
+      "\t$1? data;",
+      "",
+      "\t$1({required this.code, required this.data});",
+      "",
+      "\tstatic $1 toResponseModel(Map<String, dynamic> map) {",
+      "\t\treturn $1(",
+      "\t\t\tcode: map['code'],",
+      "\t\t\tdata: Mapper.child<$1>(map['data'])",
+      "\t\t);",
+      "\t}",
+      "}"
+    ]
+  },
+  "to List Response Model": {
+    "prefix": "reslistmodel",
+    "body": [
+      "class $1 {",
+      "\tint code;",
+      "\tList<$1>? data;",
+      "",
+      "\t$1({required this.code, required this.data});",
+      "",
+      "\tstatic $1 toResponseModel(Map<String, dynamic> map) {",
+      "\t\treturn $1(",
+      "\t\t\tcode: map['code'],",
+      "\t\t\tdata: Mapper.children<$1>(map['data'])",
+      "\t\t);",
+      "\t}",
+      "}"
+    ]
+  }
+}
